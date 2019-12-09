@@ -1,4 +1,6 @@
 #!/usr/bin/env ruby
+# rubocop:disable Style/GlobalVars, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Lint/UselessAssignment
+
 require '../lib/logic.rb'
 
 $random_colors = color_picker
@@ -24,4 +26,6 @@ if $win == true
 else
   puts 'better luck next time...'
 end
+
+# rubocop:enable Style/GlobalVars, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Lint/UselessAssignment
 
