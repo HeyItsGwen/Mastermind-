@@ -2,13 +2,26 @@
 require '../lib/logic.rb'
 
 $random_colors = color_picker
+count = 0
+
+puts "Welcome!"
+
+while count < 12 && $win == false do
 
 
+  player_guess()
 
-puts ' '
-puts $random_colors
-puts ' '
-player_guess()
-puts ' '
-puts $guess_array
-match_check
+  match_check
+
+  if $win == true
+    break
+  end
+
+end
+
+if $win == true 
+  puts 'You figured it out!'
+else
+  puts 'better luck next time...'
+end
+

@@ -1,4 +1,5 @@
-$color_arr = ['red', 'green', 'blue', 'yellow'] 
+$color_arr = ['red', 'green', 'blue', 'yellow']
+$win = false
 
 def color_picker
   rand_array = Array.new(4){$color_arr[rand(0..3)]}
@@ -12,17 +13,19 @@ def player_guess
 
   4.times {
     puts "What is your #{guess_num[guess]} guess? (red, green, blue, or yellow)"
+    
     $guess_array << gets.chomp
+  
     guess += 1
   }
 
-  if $guess_array.any? != $color_arr.each{ |x| x }
+  if $guess_array.any?{ |x| x!=$color_arr.each{ |x| x} }
     return 'wrong inputs!'
   end
 end
 
 def match_check
-  puts 'You figured it out!' if $guess_array == $random_colors
+  $win = true if $guess_array == $random_colors
   match_arr = []
   
   $guess_array.each { |x|
